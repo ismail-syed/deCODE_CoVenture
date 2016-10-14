@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Goal = require('../models/Goal');
+var Company = require('../models/Company');
 
 // on routes that end in /bears
 // ----------------------------------------------------
@@ -20,9 +21,24 @@ router.route('/')
 
         // save the goal and check for errors
         goal.save(function (err) {
-            if (err)
-                res.send(err);
-            res.json({ message: 'Goal created!' });
+            if (err){
+              res.send(err);
+            }
+
+            // Add goal._id reference to the company model
+            var company = Company.findById(goal.companyId, function(err, company){
+              if(err){
+                console.log("error: ", err);
+              }
+              console.log("company: ", company);
+              company.goalReferences.push(goal._id);
+              company.save(function (err) {
+                if (err){
+                  res.send(err);
+                }
+                res.json({ message: 'Goal created!' });
+              });
+            });
         });
     })
 
