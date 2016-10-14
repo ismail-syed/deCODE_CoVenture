@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -10,16 +10,19 @@
     <!-- app -->
     <script type="text/javascript" src="app.js"></script>
     <!-- controllers -->
-    <script type="text/javascript" src="../controllers/MainController.js"></script>
+    <script type="text/javascript" src="../controllers/LoginController.js"></script>
+    <script type="text/javascript" src="../controllers/DashboardController.js"></script>
 
 
 </head>
 
-<body ng-app="CoVentureApp" ng-controller="MainController">
-  <input type="button" name="name" value="" ng-click="changeView()">
+<body ng-app="CoVentureApp" ng-controller="LoginController">
+    <input type="button" name="name" value="" ng-click="changeView()">
     <ng-view></ng-view>
-    <!-- <script type="text/javascript" src="../js/custom.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/custom.js"></script>
 </body>
 
 </html>

@@ -23,6 +23,9 @@ router.route('/')
         Company.find({})
         .populate('goalReferences')
         .exec(function(err, docs){
+          if(err){
+            res.send(err);
+          }
           res.json(docs);
         });
     });
@@ -32,25 +35,28 @@ router.route('/')
 router.route('/:company_id')
   // get the bear with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
   .get(function(req, res) {
-      Company.findById(req.params.company_id, function(err, user) {
-          if (err)
-              res.send(err);
-          res.json(user);
+      Company.findById(req.params.company_id)
+      .populate('goalReferences')
+      .exec(function(err, docs){
+        if(err){
+          res.send(err);
+        }
+        res.json(docs);
       });
   })
 
   // update the bear with this id (accessed at PUT http://localhost:8080/api/bears/:bear_id)
   .put(function (req, res) {
       // use our bear model to find the bear we want
-      Company.findById(req.params.company_id, function (err, user) {
+      Company.findById(req.params.company_id, function (err, company) {
 
           if (err)
               res.send(err);
 
-          user.name = req.body.name;  // update the bears info
+          company.name = req.body.name;  // update the bears info
 
           // save the bear
-          user.save(function (err) {
+          company.save(function (err) {
               if (err)
                   res.send(err);
 
@@ -63,7 +69,7 @@ router.route('/:company_id')
   .delete(function (req, res) {
       Company.remove({
           _id: req.params.company_id
-      }, function (err, user) {
+      }, function (err, company) {
           if (err)
               res.send(err);
 

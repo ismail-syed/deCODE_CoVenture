@@ -1,9 +1,9 @@
 var app = angular.module('CoVentureApp');
 
-app.controller("MainController", function($scope, $location) {
+app.controller("LoginController", function($scope, $location) {
 
-    console.log("MainController");
-    
+    console.log("LoginController");
+
     $scope.changeView = function ($scope) {
       $location.path('/dashboard')
     }
