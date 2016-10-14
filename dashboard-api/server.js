@@ -4,9 +4,9 @@ var app = express();
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
-// var mongoose = require('mongoose');
-// var mongoURL = "mongodb://node:node@ds023644.mlab.com:23644/dashboard-api";
-// mongoose.connect(mongoURL);
+var mongoose = require('mongoose');
+var mongoURL = "mongodb://user:pass@ds023054.mlab.com:23054/coventure-decode";
+mongoose.connect(mongoURL);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -19,7 +19,9 @@ var port = process.env.PORT || 8080;        // set our port
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
-app.use('/user', require('./controllers/user'));
+
+app.use('/api/user', require('./controllers/user'));
+
 
 // START THE SERVER
 // =============================================================================
