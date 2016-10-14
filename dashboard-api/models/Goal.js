@@ -5,23 +5,48 @@ var Schema = mongoose.Schema;
 // create a schema
 var GoalSchema = new Schema({
     start: {
-        required: true,
         type: Date,
         default: Date.now
     },
+
     end: {
-        required: true,
         type: Date,
         default: Date.now
+  },
+
+    variableLabel: {
+      type: String,
+      required: true
     },
-    variableLabel: String,
-    variableValue: String,
-    variableAction: String,
+
+    variableValue: {
+      type: String,
+      required: true
+    },
+
+    variableAction: {
+      type: String,
+      required: true
+    },
+
     created_at: {
         type: Date,
         required: true,
         default: Date.now
     },
+
+    companyId : {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Company',
+      required: true
+    },
+
+    userId : {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
+    },
+
     occurrence: {
         type: String,
         enum: ['WEEKLY', 'MONTHLY', 'YEARLY', 'QUARTERLY'],

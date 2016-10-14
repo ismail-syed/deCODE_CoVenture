@@ -11,6 +11,9 @@ var CompanySchema = new Schema({
     required: true,
     default: Date.now
   },
+  goalReferences: [{
+     type: Schema.Types.ObjectId, ref: 'Goal'
+  }],
   updated_at: Date
 });
 

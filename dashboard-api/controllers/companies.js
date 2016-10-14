@@ -20,10 +20,10 @@ router.route('/')
     })
 
     .get(function (req, res) {
-        Company.find(function (err, companies) {
-            if (err)
-                res.send(err);
-            res.json(companies);
+        Company.find({})
+        .populate('goalReferences')
+        .exec(function(err, docs){
+          res.json(docs);
         });
     });
 
