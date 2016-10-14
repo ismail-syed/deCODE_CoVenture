@@ -17,11 +17,6 @@ var UserSchema = new Schema({
     required: true
   },
   admin: Boolean,
-  location: String,
-  meta: {
-    age: Number,
-    website: String
-  },
   created_at: {
     type: Date,
     required: true,

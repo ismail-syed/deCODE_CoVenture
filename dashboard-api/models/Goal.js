@@ -12,7 +12,7 @@ var GoalSchema = new Schema({
     end: {
         type: Date,
         default: Date.now
-  },
+    },
 
     variableLabel: {
       type: String,
