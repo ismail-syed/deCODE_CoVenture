@@ -22,7 +22,11 @@ var UserSchema = new Schema({
     age: Number,
     website: String
   },
-  created_at: Date,
+  created_at: {
+    type: Date,
+    required: true,
+    default: Date.now
+  },
   updated_at: Date
 });
 
