@@ -11,7 +11,8 @@ router.route('/')
     .post(function (req, res) {
 
         var user = new User();      // create a new instance of the Bear model
-        user.name = req.body.name;  // set the bears name (comes from the request)
+        user.username = req.body.username;  // set the bears name (comes from the request)
+        user.password = req.body.password;
 
         // save the bear and check for errors
         user.save(function (err) {

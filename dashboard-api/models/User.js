@@ -1,12 +1,21 @@
 // grab the things we need
 var mongoose = require('mongoose');
+var bcrypt = require('bcrypt-nodejs');
 var Schema = mongoose.Schema;
 
 // create a schema
-var userSchema = new Schema({
+var UserSchema = new Schema({
   name: String,
-  username: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+  username: {
+    type: String,
+    required: true,
+    trim: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
   admin: Boolean,
   location: String,
   meta: {
@@ -17,19 +26,37 @@ var userSchema = new Schema({
   updated_at: Date
 });
 
-// custom method to add string to end of name
-// you can create more important methods like name validations or formatting
-// you can also do queries and find similar users
-userSchema.methods.dudify = function() {
-  // add some stuff to the users name
-  this.name = this.name + '-dude';
 
-  return this.name;
+// Execute before each user.save() call
+UserSchema.pre('save', function(callback) {
+  var user = this;
+
+  // Break out if the password hasn't changed
+  if (!user.isModified('password')) return callback();
+
+  // Password changed so we need to hash it
+  bcrypt.genSalt(5, function(err, salt) {
+    if (err) return callback(err);
+
+    bcrypt.hash(user.password, salt, null, function(err, hash) {
+      if (err) return callback(err);
+      user.password = hash;
+      callback();
+    });
+  });
+});
+
+// Verify password
+UserSchema.methods.verifyPassword = function(password, cb) {
+  bcrypt.compare(password, this.password, function(err, isMatch) {
+    if (err) return cb(err);
+    cb(null, isMatch);
+  });
 };
 
 // the schema is useless so far
 // we need to create a model using it
-var User = mongoose.model('User', userSchema);
+var User = mongoose.model('User', UserSchema);
 
 // make this available to our users in our Node applications
 module.exports = User;
