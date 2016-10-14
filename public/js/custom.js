@@ -1,16 +1,16 @@
-$(document).ready(function () {
-
-    $('#login-form-link').click(function(e) {
-		$("#login-form").delay(100).fadeIn(100);
- 		$("#register-form").fadeOut(100);
-		$('#register-form-link').removeClass('active');
+$(document).ready(function() {
+    
+    $('.investor-login-link').on('click',function(e) {
+		$("#investor-login").delay(100).fadeIn(100);
+ 		$("#company-login").fadeOut(100);
+		$('#company-login-link').removeClass('active');
 		$(this).addClass('active');
 		e.preventDefault();
 	});
-	$('#register-form-link').click(function(e) {
-		$("#register-form").delay(100).fadeIn(100);
- 		$("#login-form").fadeOut(100);
-		$('#login-form-link').removeClass('active');
+	$('.company-login-link').on('click',function(e) {
+		$("#company-login").delay(100).fadeIn(100);
+ 		$("#investor-login").fadeOut(100);
+		$('#investor-login-link').removeClass('active');
 		$(this).addClass('active');
 		e.preventDefault();
 	});
