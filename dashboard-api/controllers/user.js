@@ -79,4 +79,4 @@ router.route('/:user_id')
         });
     });
 
-module.export = router;
+module.exports = router;
