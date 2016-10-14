@@ -1,1 +1,3 @@
 **/node_modules
+/dashboard-api/npm-debug.log
+npm-debug.log

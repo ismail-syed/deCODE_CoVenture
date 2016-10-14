@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
+    <!-- app -->
+    <script type="text/javascript" src="app.js"></script>
+    <!-- controllers -->
+    <script type="text/javascript" src="../controllers/MainController.js"></script>
+
+
+</head>
+
+<body ng-app="CoVentureApp" ng-controller="MainController">
+  <input type="button" name="name" value="" ng-click="changeView()">
+    <ng-view></ng-view>
+    <!-- <script type="text/javascript" src="../js/custom.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+</body>
+
+</html>

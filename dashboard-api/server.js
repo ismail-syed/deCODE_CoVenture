@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 
 var cors = require('cors');
+var path = require('path');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
@@ -12,8 +13,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use(express.static(path.join(__dirname, '../public')));
 
-var port = process.env.PORT || 8080;        // set our port
+var port = process.env.PORT || 3000;        // set our port
 
 // more routes for our API will happen here
 
@@ -23,7 +25,9 @@ var port = process.env.PORT || 8080;        // set our port
 app.use('/api/users', require('./controllers/user'));
 app.use('/api/companies', require('./controllers/companies'));
 
-
+app.get('/', function(req, res) {
+  res.sendFile('./index.html');
+});
 // START THE SERVER
 // =============================================================================
 app.listen(port);
