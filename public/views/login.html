@@ -10,7 +10,7 @@
 <body>
 <div class="container">
     	<div class="row">
-			<div class="col-md-6 col-md-offset-3">
+			<div class="col-md-12">
 				<div class="panel panel-login">
 					<div class="panel-heading">
 						<div class="row">
@@ -25,7 +25,7 @@
 					</div>
 					<div class="panel-body">
 						<div class="row">
-							<div class="col-lg-12">
+							<div class="col-md-6">
 								<form id="investor-login" action="http://phpoll.com/login/process" method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
@@ -54,7 +54,9 @@
 										</div>
 									</div>
 								</form>
-								<form id="company-login" action="http://phpoll.com/register/process" method="post" role="form" style="display: none;">
+                            </div>
+                            <div class="col-md-6">
+								<form id="company-login" action="http://phpoll.com/register/process" method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
 									</div>
