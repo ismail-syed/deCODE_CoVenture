@@ -11,6 +11,12 @@ router.route('/')
         var goal = new Goal();      // create a new instance of the Goal model
         goal.start = req.body.start;
         goal.end = req.body.end;
+        goal.variableLabel = req.body.variableLabel;
+        goal.variableValue = req.body.variableValue;
+        goal.variableAction = req.body.variableAction;
+        goal.companyId = req.body.companyId;
+        goal.userId = req.body.userId;
+        goal.occurrence = req.body.occurrence;
 
         // save the goal and check for errors
         goal.save(function (err) {
