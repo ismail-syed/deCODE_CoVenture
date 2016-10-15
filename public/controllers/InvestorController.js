@@ -2,6 +2,32 @@ var app = angular.module('CoVentureApp');
 
 app.controller("InvestorController", ['$scope', '$location', 'GoalService', function($scope, $location, GoalService) {
     var selectedCompany = null;
+
+    var templates = {
+      questions: '/views/investorQuestions.html',
+      stats: 'views/stats.html',
+      key: 'views/keys.html'
+    };
+
+    $scope.template = templates.questions;
+
+    $scope.showTab = function(tab) {
+      console.log('tab pressed');
+      switch (tab) {
+        case 'stats':
+          $scope.template = templates.stats;
+          break;
+        case 'keys':
+            $scope.template = templates.key;
+          break;
+        case 'questions':
+            $scope.template = templates.questions;
+            break;
+        default:
+
+      }
+    };
+
     $scope.selectCompany = function(company) {
         selectedCompany = company;
         console.log(selectedCompany);
@@ -13,7 +39,7 @@ app.controller("InvestorController", ['$scope', '$location', 'GoalService', func
           $scope.questions.push({"title": question.variableLabel, "name": question.variableAction, "freq": question.occurrence, "repr": "GRAPH"});
         }
         console.log($scope.questions);
-    }
+    };
 
     console.log("InvestorController");
 
@@ -34,5 +60,5 @@ app.controller("InvestorController", ['$scope', '$location', 'GoalService', func
       // TODO add occurrence and repr to goal (this.createFreq, this.createRepr)
       GoalService.createGoal(goal, selectedCompany._id);
       $scope.questions.push({"title": this.createTitle, "name": this.createName, "freq": this.createFreq, "repr": this.createRepr});
-    }
+    };
 }]);

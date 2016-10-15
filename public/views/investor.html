@@ -15,13 +15,13 @@
 		<!-- Top Menu Items -->
 		<ul class="nav navbar-left top-nav">
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Stats </a>
+				<a class="dropdown-toggle" data-toggle="dropdown" ng-click="showTab('stats')"> Stats </a>
 			</li>
 			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" ng-click="showQuestions()"> Questions </a>
+				<a class="dropdown-toggle" data-toggle="dropdown" ng-click="showTab('questions')"> Questions </a>
 			</li>
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Keys </a>
+				<a class="dropdown-toggle" data-toggle="dropdown" ng-click="showTab('keys')"> Keys </a>
 			</li>
 		</ul>
 		<ul class="nav navbar-right top-nav">
@@ -75,8 +75,8 @@
 		<!-- /.navbar-collapse -->
 		<!-- /.navbar-collapse -->
 	</nav>
-	<div id="page-wrapper" ng-show="questionView" style="margin-top: 50px;">
-		<div ng-include="'/views/investorQuestions.html'"></div>
+	<div id="page-wrapper" style="margin-top: 50px;">
+		<div ng-include="template"></div>
 	</div>
 
 
