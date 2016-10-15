@@ -20,8 +20,7 @@ var GoalSchema = new Schema({
     },
 
     variableValue: {
-      type: [String],
-      required: true
+      type: [String]
     },
 
     variableAction: {

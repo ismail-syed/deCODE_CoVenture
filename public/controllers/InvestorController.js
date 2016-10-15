@@ -90,6 +90,5 @@ app.controller("InvestorController", ['$scope', '$location', 'GoalService', 'Com
       }).catch(function() {
         $scope.error = 'Unable to get the companies';
       });
-      $scope.questions.push({"title": this.createTitle, "name": this.createName, "freq": this.createFreq, "repr": this.createRepr});
     };
 }]);
