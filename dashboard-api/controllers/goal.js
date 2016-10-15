@@ -65,15 +65,39 @@ router.route('/:goal_id')
   // update the bear with this id (accessed at PUT http://localhost:8080/api/bears/:bear_id)
   .put(function (req, res) {
       // use our bear model to find the bear we want
-      Goal.findById(req.params.goal_id, function (err, user) {
+      Goal.findById(req.params.goal_id, function (err, goal) {
 
-          if (err)
-              res.send(err);
+          if (err){
+            res.send(err);
+          }
 
-          user.name = req.body.name;  // update the bears info
+         if(req.body.variableValue){
+           goal.variableValue = req.body.variableValue;
+         }
+         if(req.body.name){
+           goal.name = req.body.name;
+         }
+         if(req.body.start){
+           goal.start = req.body.start;
+         }
+         if(req.body.end){
+           goal.end = req.body.end;
+         }
+         if(req.body.variableLabel){
+           goal.variableLabel = req.body.variableLabel;
+         }
+         if(req.body.variableAction){
+           goal.variableAction = req.body.variableAction;
+         }
+         if(req.body.companyId){
+           goal.companyId = req.body.companyId;
+         }
+         if(req.body.occurrence){
+           goal.occurrence = req.body.occurrence;
+         }
 
           // save the bear
-          user.save(function (err) {
+          goal.save(function (err) {
               if (err)
                   res.send(err);
 
