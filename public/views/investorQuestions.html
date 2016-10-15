@@ -1,5 +1,17 @@
-<div>
-  <p>Create new question</p>
+<div class="container">
+  <div class="col-xs-12">
+    <div class="row">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-3">
+                    <i class="fa fa-question fa-2x"></i>
+                    Create a question:
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+
   <form ng-submit="submit()" name="createQuestionForm">
     <label for="title">Question Title</label>
     <input ng-model="createTitle" type="text" id="title" required>
@@ -12,13 +24,18 @@
     <input type="submit" value="Create Question">
   </form>
   <p>Preview: Enter {{ createName }}.</p>
-</div>
+      </div>
+    </div>
 
 <div ng-repeat="question in questions">
   <p>{{question.title}}</p>
   <p>{{question.name}}</p>
   <p>{{question.freq}}</p>
   <p>{{question.repr}}</p>
+</div>
+
+</div>
+</div>
 </div>
   <!-- <div class="col-xs-12">
     <div class="panel">

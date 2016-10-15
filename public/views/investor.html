@@ -18,7 +18,7 @@
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Stats </a>
 			</li>
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Questions </a>
+				<a class="dropdown-toggle" data-toggle="dropdown" ng-click="showQuestions()"> Questions </a>
 			</li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Keys </a>
@@ -75,5 +75,11 @@
 		<!-- /.navbar-collapse -->
 		<!-- /.navbar-collapse -->
 	</nav>
+	<div id="page-wrapper" ng-show="questionView" style="margin-top: 50px;">
+		<div ng-include="'/views/investorQuestions.html'"></div>
+	</div>
+
+
+	</div>
 </div>
 <!-- /#wrapper -->
