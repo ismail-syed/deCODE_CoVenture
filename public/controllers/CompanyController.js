@@ -7,7 +7,6 @@ app.controller("CompanyController", ['$scope', '$location', 'CompanyService', 'C
     stats: 'views/stats.html',
     key: 'views/keys.html'
   };
-  $scope.cName = CurrentCompanyService.getCurrentCompany().name;
   $scope.template = templates.questions;
 
   $scope.logout= function() {
