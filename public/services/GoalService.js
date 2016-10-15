@@ -27,9 +27,14 @@ app.service('GoalService', function($http) {
     }
 
     this.updateGoal = function(goalId, val) {
-      let oldVals = this.getGoal(goalId).variableValue;
-      return $http.put(baseURL + 'goals' + goalId, {
-        variableValue: oldVals.push(val)
+      return this.getGoal(goalId).then(function(data) {
+        let oldVals = data.variableValue;
+        oldVals.push(val);
+        console.log("sanity check");
+        return $http.put(baseURL + 'goals/' + goalId, {
+          completed: true,
+          variableValue: oldVals
+        });
       }).then(function(res) {
         return res.data;
       });

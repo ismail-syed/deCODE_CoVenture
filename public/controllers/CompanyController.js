@@ -45,8 +45,14 @@ app.controller("CompanyController", ['$scope', '$location', 'CompanyService', 'C
       $location.path('/company');
     };
 
-    $scope.submit = function() {
-      console.log("test");
-      //GoalService.updateGoal(question._id, $scope.val);
+    $scope.submit = function(question) {
+      console.log(question._id, this.answer);
+      GoalService.updateGoal(question._id, this.answer).then(function(data) {
+        console.log("Update goal: ", question._id);
+        question.completed = true;
+        // TODO session save completed
+      }).catch(function() {
+        $scope.error = 'Unable to update goal';
+      });
     };
 }]);

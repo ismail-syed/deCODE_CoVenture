@@ -77,7 +77,7 @@ app.controller("InvestorController", ['$scope', '$location', 'GoalService', 'Com
     ];
 
     $scope.submit = function() {
-      var goal = {"variableAction": this.createName, "variableLabel": this.createTitle, "companyId": $scope.selectedCompany._id, "variableValue": ['temp']};
+      var goal = {"variableAction": this.createName, "variableLabel": this.createTitle, "companyId": $scope.selectedCompany._id, "variableValue": []};
       // TODO add occurrence and repr to goal (this.createFreq, this.createRepr)
       var companyId = $scope.selectedCompany._id;
       var that = this;
