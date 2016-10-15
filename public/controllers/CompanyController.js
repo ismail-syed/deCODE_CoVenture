@@ -33,6 +33,9 @@ app.controller("CompanyController", ['$scope', '$location', 'CompanyService', 'C
     }
   };
 
+    $scope.myfunc = function(){
+      console.log("submit");
+    }
 
     CompanyService.getCompanies().then(function(data) {
       $scope.companies = data;

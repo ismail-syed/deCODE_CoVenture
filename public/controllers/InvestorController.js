@@ -91,4 +91,15 @@ app.controller("InvestorController", ['$scope', '$location', 'GoalService', 'Com
         $scope.error = 'Unable to get the companies';
       });
     };
+
+    $scope.submitCompanyName = function() {
+      var company = {"name": this.newCompany};
+      console.log(company.name);
+      // TODO add occurrence and repr to goal (this.createFreq, this.createRepr)
+      CompanyService.createCompany(company).then(function(data) {
+      }).catch(function() {
+        $scope.error = 'Unable to get the companies';
+      });
+    }
+
 }]);
