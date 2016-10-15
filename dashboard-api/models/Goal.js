@@ -40,6 +40,12 @@ var GoalSchema = new Schema({
       required: true
     },
 
+    completed: {
+      type: Boolean,
+      required: true,
+      default: false
+    },
+
     // userId : {
     //   type: mongoose.Schema.Types.ObjectId,
     //   ref: 'User',
