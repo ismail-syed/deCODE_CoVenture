@@ -59,6 +59,7 @@ app.controller("InvestorController", ['$scope', '$location', 'GoalService', 'Com
 
     $scope.init = function(company){
       $scope.selectCompany(company, 0);
+      $scope.selectedCompany = company;
     };
 
     console.log("InvestorController");
@@ -76,9 +77,10 @@ app.controller("InvestorController", ['$scope', '$location', 'GoalService', 'Com
     ];
 
     $scope.submit = function() {
-      var goal = {"variableAction": this.createName, "variableLabel": this.createTitle, "companyId": selectedCompany._id};
+      var goal = {"variableAction": this.createName, "variableLabel": this.createTitle, "companyId": $scope.selectedCompany._id};
       // TODO add occurrence and repr to goal (this.createFreq, this.createRepr)
-      GoalService.createGoal(goal, selectedCompany._id);
+      var companyId = $scope.selectedCompany._id;
+      GoalService.createGoal(goal, companyId);
       $scope.questions.push({"title": this.createTitle, "name": this.createName, "freq": this.createFreq, "repr": this.createRepr});
     };
 }]);
