@@ -36,38 +36,12 @@
 				<li ng-repeat="x in companies" ng-class="getClass($index)" ng-init="init(companies[0])">
 					<a ng-click="selectCompany(x, $index)"><i class="fa fa-fw fa fa-users"></i> {{x.name}}</a>
 				</li>
-				<li style="padding: 10px;"">
+				<li style="padding: 10px;">
 
-
-<!-- <form ng-submit="submit()" name="createQuestionForm">
-            <div class="form-group">
-              <label for="title">Category</label>
-              <input ng-model="createTitle" type="text" id="title" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="name">Metric</label>
-              <input ng-model="createName" type="text" id="name" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="freq">Frequency</label>
-              <select ng-model="createFreq" ng-options="f for f in frequencies" id="freq" class="form-control" required></select>
-            </div>
-            <div class="form-group">
-              <label for="repr">Visual Type</label>
-              <select ng-model="createRepr" ng-options="r for r in representations" id="repr" class="form-control" required></select>
-            </div>
-            <input type="submit" class='btn btn-primary' value="Create Question">
-          </form>
- -->
-
-
-			<form ng-submit="submitCompanyName()">
-			   <input type="text" class="form-control" ng-enter="submit();" ng-model="newCompany" id="newCompany" />
-			    <input type="submit" class='btn btn-primary' value="Add Company">
-			</form>
-				 <!-- <input id="newCompany" type="text" value=" New Company " onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }"><br> -->
-
-				 
+				<form ng-submit="submitCompanyName()">
+				    <input type="text" class="form-control" ng-enter="submit();" ng-model="newCompany" id="newCompany" />
+				    <input type="submit" class='btn btn-primary btn-sm'  style="margin:5px; float:right " value="Add Company">
+				</form>
 
 				</li>
 			</ul>

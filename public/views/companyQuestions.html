@@ -1,11 +1,16 @@
-YOU GETTIN ASKED SOME STUFF {{company.name}}
-<div ng-repeat="question in questions | filter:{completed:false}">
-  <form ng-submit="submit(question)" name="createQuestionForm">
-    <div class="form-group">
-      <label for="val">{{$index}}: {{question.variableLabel}}, {{question.variableAction}}</label>
-      <input ng-model="answer" type="text" id="val" class="form-control" required>
-      <input type="submit" value="Submit">
-      {{answer}}
-    </div>
-  </form>
+<div class="container">
+  <div class="page-header">
+    <h2>Required KPI's for {{company.name}}</h2>
+  </div>
+
+  <div ng-repeat="question in questions | filter:{completed:false}">
+    <form ng-submit="submit(question)" name="createQuestionForm">
+      <div class="form-group">
+        <label for="val">{{question.variableLabel}}, {{question.variableAction}}</label>
+        <input ng-model="answer" type="text" id="val" class="form-control" required>
+        <input type="submit" value="Submit" class="btn btn-primary" style="margin:10px">
+        {{answer}}
+      </div>
+    </form>
+  </div>
 </div>

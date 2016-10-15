@@ -95,9 +95,9 @@ router.route('/:goal_id')
          if(req.body.occurrence){
            goal.occurrence = req.body.occurrence;
          }
-         if(req.body.completed){
+        //  if(req.body.completed){
            goal.completed = req.body.completed;
-         }
+        //  }
           // save the bear
           goal.save(function (err) {
               if (err)
