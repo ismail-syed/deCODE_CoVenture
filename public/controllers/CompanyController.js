@@ -7,17 +7,24 @@ app.controller("CompanyController", ['$scope', '$location', 'CompanyService', 'C
     stats: 'views/stats.html',
     key: 'views/keys.html'
   };
-
+  $scope.cName = CurrentCompanyService.getCurrentCompany().name;
   $scope.template = templates.questions;
 
   $scope.logout= function() {
     $location.path('/');
   };
   $scope.showTab = function(tab) {
-    console.log('tab pressed');
     switch (tab) {
       case 'stats':
         $scope.template = templates.stats;
+        console.log(CurrentCompanyService.getCurrentCompany());
+        GoalService.getCompanyGoals(CurrentCompanyService.getCurrentCompany()._id).then(function(data) {
+          $scope.metrics = data;
+          console.log('....................');
+          console.log(data);
+         }).catch(function() {
+          $scope.error = 'Unable to get the companies';
+        });
         break;
       case 'keys':
           $scope.template = templates.key;

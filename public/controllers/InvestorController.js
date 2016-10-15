@@ -23,6 +23,13 @@ app.controller("InvestorController", ['$scope', '$location', '$window', 'GoalSer
       switch (tab) {
         case 'stats':
           $scope.template = templates.stats;
+          GoalService.getCompanyGoals($scope.selectedCompany._id).then(function(data) {
+            $scope.metrics = data;
+            console.log('....................');
+            console.log(data);
+           }).catch(function() {
+            $scope.error = 'Unable to get the companies';
+          });
           break;
         case 'keys':
             $scope.template = templates.key;
