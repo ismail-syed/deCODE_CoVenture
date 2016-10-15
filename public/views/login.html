@@ -13,7 +13,7 @@
 				<select ng-model="selectedCompany" ng-options="x.name for x in companies" class=" form-control" id="select">
             </select>
 				<div style="margin:5px 0px">
-					<button id="button" ng-click="loginCompany()" class="btn btn-lg btn-primary">Login</button>
+					<button id="button" ng-click="loginCompany(selectedCompany)" class="btn btn-lg btn-primary">Login</button>
 				</div>
 			</div>
 		</div>

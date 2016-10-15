@@ -1,9 +1,9 @@
 var app = angular.module('CoVentureApp');
 
-app.controller("CompanyController", ['$scope', '$location', 'CompanyService', function($scope, $location, CompanyService) {
+app.controller("CompanyController", ['$scope', '$location', 'CompanyService', 'CurrentCompanyService', function($scope, $location, CompanyService, CurrentCompanyService) {
 
   var templates = {
-    questions: '/views/investorQuestions.html',
+    questions: '/views/companyQuestions.html',
     stats: 'views/stats.html',
     key: 'views/keys.html'
   };
@@ -24,11 +24,14 @@ app.controller("CompanyController", ['$scope', '$location', 'CompanyService', fu
         break;
       case 'questions':
           $scope.template = templates.questions;
+          console.log(CurrentCompanyService.getCurrentCompany());
+          $scope.company = CurrentCompanyService.getCurrentCompany().name;
           break;
       default:
 
     }
   };
+
 
     CompanyService.getCompanies().then(function(data) {
       $scope.companies = data;
