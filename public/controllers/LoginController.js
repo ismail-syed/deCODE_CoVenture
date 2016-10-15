@@ -12,6 +12,8 @@ app.controller("LoginController", ['$scope', '$location', 'CompanyService', func
     };
 
     $scope.loginCompany = function() {
-      $location.path('/company');
+      if ($scope.selectedCompany.$modelValue != '') {
+        $location.path('/company');
+      }
     };
 }]);
