@@ -30,6 +30,9 @@ app.use('/api/goals', require('./controllers/goal'));
 app.get('/', function(req, res) {
   res.sendFile('./index.html');
 });
+app.get('/test', function(req, res) {
+  res.sendFile('./HelloAnalytics.html');
+});
 // START THE SERVER
 // =============================================================================
 app.listen(port);
