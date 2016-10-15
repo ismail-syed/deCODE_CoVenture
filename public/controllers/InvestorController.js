@@ -81,6 +81,12 @@ app.controller("InvestorController", ['$scope', '$location', 'GoalService', 'Com
       // TODO add occurrence and repr to goal (this.createFreq, this.createRepr)
       var companyId = $scope.selectedCompany._id;
       GoalService.createGoal(goal, companyId);
+
+      this.createName = "";
+      this.createTitle = "";
+      this.createFreq = "";
+      this.createRepr = "";
+
       $scope.questions.push({"title": this.createTitle, "name": this.createName, "freq": this.createFreq, "repr": this.createRepr});
     };
 }]);
