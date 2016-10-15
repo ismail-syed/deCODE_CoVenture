@@ -12,4 +12,13 @@ app.service('CompanyService', function($http) {
             return res.data;
         });
     }
+
+
+    this.createCompany = function(company) {
+        return $http.post(baseURL + 'companies', {
+            name: company.name,
+        }).then(function(res) {
+            return res.data;
+        });
+    }
 });
