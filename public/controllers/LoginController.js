@@ -3,16 +3,12 @@ var app = angular.module('CoVentureApp');
 app.controller("LoginController", function($scope, $location) {
 
     console.log("LoginController");
+    $scope.companies = ['Amazon', 'Klipfolio'];
 
-    $scope.companies = [
-      'Amazon',
-      'Klipfolio',
-      'CoVenture',
-      'You.i'
-    ]
-
-    $scope.getCompany = function($scope) {
-      
-    }
+  // CompanyService.getPonies().then(function(data) {
+  //   $scope.ponies = data;
+  // }).catch(function() {
+  //   $scope.error = 'unable to get the ponies';
+  // });
 
 });
