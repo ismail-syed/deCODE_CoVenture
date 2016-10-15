@@ -6,14 +6,14 @@
 		<div class="col-md-offset-2">
 			<div class="col-md-3" style="text-align:center">
 				<h1>Investor</h1>
-				<button id="button" ng-click="loginInvestor" class="btn btn-lg btn-primary">Login</button>
+				<button id="button" ng-click="loginInvestor()" class="btn btn-lg btn-primary">Login</button>
 			</div>
 			<div class="col-md-offset-4 col-md-2" style="text-align:center">
 				<h1>Startup</h1>
-				<select ng-model="selectedCompany" ng-options="x for x in companies" class=" form-control" id="select">
+				<select ng-model="selectedCompany" ng-options="x.name for x in companies" class=" form-control" id="select">
             </select>
 				<div style="margin:5px 0px">
-					<button id="button" ng-click="loginCompany" class="btn btn-lg btn-primary">Login</button>
+					<button id="button" ng-click="loginCompany()" class="btn btn-lg btn-primary">Login</button>
 				</div>
 			</div>
 		</div>

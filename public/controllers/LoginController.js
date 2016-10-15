@@ -1,16 +1,16 @@
 var app = angular.module('CoVentureApp');
 
-app.controller("LoginController", ['$scope', 'CompanyService', function($scope, CompanyService) {
+app.controller("LoginController", ['$scope', 'CompanyService', function($scope, CompanyService, $location) {
     CompanyService.getCompanies().then(function(data) {
       $scope.companies = data;
     }).catch(function() {
       $scope.error = 'Unable to get the companies';
     });
 
-    $scope.goInvestor = function() {
+    $scope.loginInvestor = function() {
       $location.path('/investor')
     };
-    $scope.goCompany = function() {
+    $scope.loginCompany = function() {
       $location.path('/company')
     };
 }]);
