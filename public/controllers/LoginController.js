@@ -12,7 +12,7 @@ app.controller("LoginController", ['$scope', '$location', 'CompanyService', 'Cur
     };
 
     $scope.loginCompany = function(company) {
-      if ($scope.selectedCompany.$modelValue != '') {
+      if ($scope.selectedCompany) {
         $location.path('/company');
         CurrentCompanyService.setCurrentCompany(company);
       }
