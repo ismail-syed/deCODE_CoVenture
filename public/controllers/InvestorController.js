@@ -1,6 +1,6 @@
 var app = angular.module('CoVentureApp');
 
-app.controller("InvestorController", ['$scope', '$location', 'GoalService', 'CompanyService', function($scope, $location, GoalService, CompanyService) {
+app.controller("InvestorController", ['$scope', '$location', '$window', 'GoalService', 'CompanyService', function($scope, $location, $window, GoalService, CompanyService) {
     $scope.selectedCompany = null;
     var selectedIndex = -1;
     $scope.getClass = function(ind) {
@@ -100,6 +100,7 @@ app.controller("InvestorController", ['$scope', '$location', 'GoalService', 'Com
       }).catch(function() {
         $scope.error = 'Unable to get the companies';
       });
+      $window.location.reload();
     }
 
 }]);
