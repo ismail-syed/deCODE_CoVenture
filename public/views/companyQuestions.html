@@ -1,0 +1,9 @@
+YOU GETTIN ASKED SOME STUFF {{company}}
+<div ng-repeat="question in questions">
+  <form ng-submit="submit()" name="createQuestionForm">
+    <div class="form-group">
+      <label for="title">Question {{$index}}</label>
+      <input ng-model="createTitle" type="text" id="title" class="form-control" required>
+    </div>
+  </form>
+</div>
