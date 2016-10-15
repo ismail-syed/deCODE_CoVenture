@@ -4,7 +4,7 @@ app.config(function($routeProvider) {
 
     $routeProvider.when('/', {
       controller: 'LoginController',
-      templateUrl: '/views/login.html'
+      templateUrl: '/views/login.html',
     }).when('/company', {
       controller: 'CompanyController',
       templateUrl: '/views/company.html'

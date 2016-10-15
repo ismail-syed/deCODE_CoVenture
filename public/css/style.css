@@ -1,12 +1,15 @@
 /**
  * parallax.css
  * @Author Original @msurguy -> http://bootsnipp.com/snippets/featured/parallax-login-form
- * @Reworked By @kaptenn_com 
+ * @Reworked By @kaptenn_com
  * @package PARALLAX LOGIN.
  */
-    
+
 body {
     padding-top: 90px;
+}
+body[ng-controller="LoginController"] {
+  background-image: url(http://www.coventure.vc/images/bgimg-new1.jpg);
 }
 .panel-login {
 	border-color: #ccc;
