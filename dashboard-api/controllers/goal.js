@@ -16,7 +16,7 @@ router.route('/')
         goal.variableValue = req.body.variableValue;
         goal.variableAction = req.body.variableAction;
         goal.companyId = req.body.companyId;
-        goal.userId = req.body.userId;
+        // goal.userId = req.body.userId;
         goal.occurrence = req.body.occurrence;
 
         // save the goal and check for errors

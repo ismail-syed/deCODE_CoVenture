@@ -41,11 +41,11 @@ var GoalSchema = new Schema({
       required: true
     },
 
-    userId : {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true
-    },
+    // userId : {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: 'User',
+    //   required: true
+    // },
 
     occurrence: {
         type: String,
