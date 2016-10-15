@@ -6,12 +6,8 @@
  */
 
 body {
-    padding-top: 90px;
+    /*padding-top: 90px;*/
 }
-/*body[ng-controller="LoginController"] {
-  padding-top: 90px;
-  background-image: url(http://www.coventure.vc/images/bgimg-new1.jpg);
-}*/
 
 .panel-login {
 	border-color: #ccc;
