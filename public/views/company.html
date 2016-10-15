@@ -15,18 +15,18 @@
 		<!-- Top Menu Items -->
 		<ul class="nav navbar-left top-nav">
 			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" ng-click="showTab('stats')"> Stats </a>
+				<a id="stats" class="dropdown-toggle" data-toggle="dropdown" onclick="showGraph()" ng-click="showTab('stats')"> Stats </a>
 			</li>
 			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" ng-click="showTab('questions')"> Questions </a>
+				<a class="dropdown-toggle" data-toggle="dropdown"  onclick="hideGraph()" ng-click="showTab('questions')"> Questions </a>
 			</li>
 			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" ng-click="showTab('keys')"> Keys </a>
+				<a class="dropdown-toggle" data-toggle="dropdown" onclick="hideGraph()" ng-click="showTab('keys')"> Keys </a>
 			</li>
 		</ul>
 		<ul class="nav navbar-right top-nav">
 			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" ng-click="logout()"> Logout </a>
+				<a class="dropdown-toggle" data-toggle="dropdown" onclick="hideGraph()" ng-click="logout()"> Logout </a>
 			</li>
 		</ul>
 		<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
