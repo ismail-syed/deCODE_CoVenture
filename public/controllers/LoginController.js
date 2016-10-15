@@ -1,6 +1,6 @@
 var app = angular.module('CoVentureApp');
 
-app.controller("LoginController", ['$scope', 'CompanyService', function($scope, CompanyService, $location) {
+app.controller("LoginController", ['$scope', '$location', 'CompanyService', function($scope, $location, CompanyService) {
     CompanyService.getCompanies().then(function(data) {
       $scope.companies = data;
     }).catch(function() {
@@ -8,9 +8,10 @@ app.controller("LoginController", ['$scope', 'CompanyService', function($scope, 
     });
 
     $scope.loginInvestor = function() {
-      $location.path('/investor')
+      $location.path('/investor');
     };
+
     $scope.loginCompany = function() {
-      $location.path('/company')
+      $location.path('/company');
     };
 }]);
