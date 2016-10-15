@@ -10,7 +10,7 @@ app.config(function($routeProvider) {
       templateUrl: '/views/company.html'
     }).when('/investor', {
       controller: 'InvestorController',
-      templateUrl: '/views/investor'
+      templateUrl: '/views/investor.html'
     });
 
 
