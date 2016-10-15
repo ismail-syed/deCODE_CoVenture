@@ -2,7 +2,14 @@ var app = angular.module('CoVentureApp');
 
 app.controller("InvestorController", ['$scope', '$location', 'GoalService', function($scope, $location, GoalService) {
     var selectedCompany = null;
-
+    var selectedIndex = -1;
+    $scope.getClass = function(ind) {
+      if( ind === selectedIndex ){
+            return "active";
+        } else{
+            return "";
+        }
+    }
     var templates = {
       questions: '/views/investorQuestions.html',
       stats: 'views/stats.html',
@@ -28,7 +35,8 @@ app.controller("InvestorController", ['$scope', '$location', 'GoalService', func
       }
     };
 
-    $scope.selectCompany = function(company) {
+    $scope.selectCompany = function(company, ind) {
+        selectedIndex = ind;
         selectedCompany = company;
         console.log(selectedCompany);
         $scope.questions = [];
@@ -56,7 +64,7 @@ app.controller("InvestorController", ['$scope', '$location', 'GoalService', func
     ];
 
     $scope.submit = function() {
-      var goal = {"variableAction": this.createName, "variableLabel": this.createTitle, "companyId": selectedCompanyId};
+      var goal = {"variableAction": this.createName, "variableLabel": this.createTitle, "companyId": selectedCompany._id};
       // TODO add occurrence and repr to goal (this.createFreq, this.createRepr)
       GoalService.createGoal(goal, selectedCompany._id);
       $scope.questions.push({"title": this.createTitle, "name": this.createName, "freq": this.createFreq, "repr": this.createRepr});
