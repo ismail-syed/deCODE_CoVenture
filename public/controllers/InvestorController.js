@@ -1,19 +1,21 @@
 var app = angular.module('CoVentureApp');
 
-app.controller("InvestorController", '$scope', '$location', 'GoalService', function($scope, $location, GoalService) {
-    $scope.loadGoals = function() {
-      GoalService.getGoal(selectedCompanyId).then(function(goals) {
+app.controller("InvestorController", ['$scope', '$location', 'GoalService', function($scope, $location, GoalService) {
+    var selectedCompany = null;
+    $scope.selectCompany = function(company) {
+        selectedCompany = company;
+        console.log(selectedCompany);
         $scope.questions = [];
-        for(goal in goals) {
-          $scope.questions.push({"title": goal["label"], "name": goal["action"], "freq": goal["occurrence"], "repr": "GRAPH"});
+        for(i = 0; i < company.goalReferences.length; i++) {
+          let question = company.goalReferences[i];
+          console.log(question);
+          // TODO allow changes to repr
+          $scope.questions.push({"title": question.variableLabel, "name": question.variableAction, "freq": question.occurrence, "repr": "GRAPH"});
         }
-      }).catch(function() {
-        $scope.error = 'Unable to get the goals';
-      });
+        console.log($scope.questions);
     }
 
     console.log("InvestorController");
-    var selectedCompanyId = null;
 
     $scope.frequencies = [
       "WEEKLY",
@@ -30,7 +32,7 @@ app.controller("InvestorController", '$scope', '$location', 'GoalService', funct
     $scope.submit = function() {
       var goal = {"variableAction": this.createName, "variableLabel": this.createTitle, "companyId": selectedCompanyId};
       // TODO add occurrence and repr to goal (this.createFreq, this.createRepr)
-      GoalService.createGoal(goal, selectedCompanyId);
+      GoalService.createGoal(goal, selectedCompany._id);
       $scope.questions.push({"title": this.createTitle, "name": this.createName, "freq": this.createFreq, "repr": this.createRepr});
     }
-});
+}]);

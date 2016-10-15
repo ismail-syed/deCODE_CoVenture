@@ -67,8 +67,8 @@
                     <li>
                         <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
                     </li> -->
-				<li ng-model="selectCompany" ng-repeat=" x in companies">
-					<a href="index.html"><i class="fa fa-fw fa-bar-chart-o"></i> {{x.name}}</a>
+				<li ng-repeat=" x in companies">
+					<a ng-click="selectCompany(x)"><i class="fa fa-fw fa-bar-chart-o"></i> {{x.name}}</a>
 				</li>
 			</ul>
 		</div>
