@@ -1,6 +1,6 @@
 var app = angular.module('CoVentureApp');
 
-app.controller("CompanyController", ['$scope', 'CompanyService', function($scope, CompanyService) {
+app.controller("CompanyController", ['$scope', '$location', 'CompanyService', function($scope, $location, CompanyService) {
 
   var templates = {
     questions: '/views/investorQuestions.html',
@@ -10,6 +10,9 @@ app.controller("CompanyController", ['$scope', 'CompanyService', function($scope
 
   $scope.template = templates.questions;
 
+  $scope.logout= function() {
+    $location.path('/');
+  };
   $scope.showTab = function(tab) {
     console.log('tab pressed');
     switch (tab) {
