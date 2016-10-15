@@ -77,16 +77,19 @@ app.controller("InvestorController", ['$scope', '$location', 'GoalService', 'Com
     ];
 
     $scope.submit = function() {
-      var goal = {"variableAction": this.createName, "variableLabel": this.createTitle, "companyId": $scope.selectedCompany._id};
+      var goal = {"variableAction": this.createName, "variableLabel": this.createTitle, "companyId": $scope.selectedCompany._id, "variableValue": ['temp']};
       // TODO add occurrence and repr to goal (this.createFreq, this.createRepr)
       var companyId = $scope.selectedCompany._id;
-      GoalService.createGoal(goal, companyId);
-
-      this.createName = "";
-      this.createTitle = "";
-      this.createFreq = "";
-      this.createRepr = "";
-
+      var that = this;
+      GoalService.createGoal(goal, companyId).then(function(data) {
+        console.log("Create goal response: ", data);
+        that.createName = "";
+        that.createTitle = "";
+        that.createFreq = "";
+        that.createRepr = "";
+      }).catch(function() {
+        $scope.error = 'Unable to get the companies';
+      });
       $scope.questions.push({"title": this.createTitle, "name": this.createName, "freq": this.createFreq, "repr": this.createRepr});
     };
 }]);
