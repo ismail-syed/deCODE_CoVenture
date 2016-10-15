@@ -13,16 +13,12 @@
 	<script type="text/javascript" src="controllers/LoginController.js"></script>
 	<script type="text/javascript" src="controllers/CompanyController.js"></script>
 	<script type="text/javascript" src="controllers/InvestorController.js"></script>
-
+	<script type="text/javascript" src="services/CompanyService.js"></script>
+	<script type="text/javascript" src="services/GoalService.js"></script>
 </head>
 
-<body ng-app="CoVentureApp" ng-controller="LoginController">
-	<input type="button" name="name" value="" ng-click="changeView()">
+<body ng-app="CoVentureApp">
 	<ng-view></ng-view>
-
-	<!-- scripts -->
-	<script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="../js/custom.js"></script>
 </body>
 
 </html>

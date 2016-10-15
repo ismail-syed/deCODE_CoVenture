@@ -8,10 +8,10 @@ app.controller("LoginController", ['$scope', 'CompanyService', function($scope, 
       $scope.error = 'Unable to get the companies';
     });
 
-    $scope.loginInvestor = function() {
-    }
-
-    $scope.loginCompany = function() {
-
-    }
+    $scope.goInvestor = function() {
+      $location.path('/investor')
+    };
+    $scope.goCompany = function() {
+      $location.path('/company')
+    };
 }]);
