@@ -1,11 +1,16 @@
 var app = angular.module('CoVentureApp');
 
-app.controller("CompanyController", function($scope, $location) {
+app.controller("CompanyController", ['$scope', 'CompanyService', function($scope, CompanyService) {
 
-    console.log("CompanyController");
+    CompanyService.getCompanies().then(function(data) {
+      $scope.companies = data;
+    }).catch(function() {
+      $scope.error = 'Unable to get the companies';
+    });
+
 
     $scope.changeView = function ($scope) {
       $location.path('/company')
     }
 
-});
+}]);
