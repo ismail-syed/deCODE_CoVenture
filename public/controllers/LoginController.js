@@ -12,7 +12,11 @@ app.controller("LoginController", function($scope, $location) {
     ]
 
     $scope.getCompany = function($scope) {
-      
+
+    }
+
+    $scope.goToIQ = function() {
+      $location.path('investor/questions');
     }
 
 });

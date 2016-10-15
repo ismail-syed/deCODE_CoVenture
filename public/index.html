@@ -11,6 +11,7 @@
     <script type="text/javascript" src="app.js"></script>
     <!-- controllers -->
     <script type="text/javascript" src="../controllers/LoginController.js"></script>
+    <script type="text/javascript" src="../controllers/InvestorQuestionsController.js"></script>
     <script type="text/javascript" src="../controllers/DashboardController.js"></script>
 
 
@@ -18,6 +19,7 @@
 
 <body ng-app="CoVentureApp" ng-controller="LoginController">
     <input type="button" name="name" value="" ng-click="changeView()">
+    <input type="button" value="IQ" ng-click="goToIQ()">
     <ng-view></ng-view>
 
     <!-- scripts -->
