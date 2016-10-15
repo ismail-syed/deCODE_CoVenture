@@ -1,0 +1,44 @@
+<div>
+  <p>Create new question</p>
+  <form ng-submit="submit()" name="createQuestionForm">
+    <label for="title">Question Title</label>
+    <input ng-model="createTitle" type="text" id="title" required>
+    <label for="name">Question Name</label>
+    <input ng-model="createName" type="text" id="name" required>
+    <label for="freq">Question Title</label>
+    <select ng-model="createFreq" ng-options="f for f in frequencies" id="freq" required></select>
+    <label for="repr">Question Title</label>
+    <select ng-model="createRepr" ng-options="r for r in representations" id="repr" required></select>
+    <input type="submit" value="Create Question">
+  </form>
+  <p>Preview: Enter {{ createName }}.</p>
+</div>
+
+<div ng-repeat="question in questions">
+  <p>{{question.title}}</p>
+  <p>{{question.name}}</p>
+  <p>{{question.freq}}</p>
+  <p>{{question.repr}}</p>
+</div>
+  <!-- <div class="col-xs-12">
+    <div class="panel">
+      <form class="" action="index.html" method="post">
+        <div class="panel-heading">
+          QUESTION_TITLE
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-12">
+              <div>
+                <input type="text" size="4" name="name" value="">
+                QUESTION
+                MONTH_NAME
+              </div>
+              <input class="btn btn-primary pull-right" type="button" name="name" value="Submit">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->
