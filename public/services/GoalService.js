@@ -1,9 +1,9 @@
 var app = angular.module('CoVentureApp');
 var baseURL = 'http://159.203.43.162:3000/api/'
 app.service('GoalService', function($http) {
-    this.getGoals = function() {
-        return $http.get(baseURL + 'goals').then(function(res) {
-            return res.data;
+    this.getCompanyGoals = function(companyId) {
+        return $http.get(baseURL + 'companies/' + companyId).then(function(res) {
+            return res.data.goalReferences;
         });
     }
 

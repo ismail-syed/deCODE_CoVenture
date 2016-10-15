@@ -4,34 +4,56 @@
       <div class="panel panel-primary">
         <div class="panel-heading">
             <div class="row">
-                <div class="col-xs-3">
-                    <i class="fa fa-question fa-2x"></i>
-                    Create a question:
+                <div class="col-xs-6">
+                    <h2>Create a question:</h2>
                 </div>
             </div>
         </div>
         <div class="panel-body">
 
-  <form ng-submit="submit()" name="createQuestionForm">
-    <label for="title">Question Title</label>
-    <input ng-model="createTitle" type="text" id="title" required>
-    <label for="name">Question Name</label>
-    <input ng-model="createName" type="text" id="name" required>
-    <label for="freq">Question Title</label>
-    <select ng-model="createFreq" ng-options="f for f in frequencies" id="freq" required></select>
-    <label for="repr">Question Title</label>
-    <select ng-model="createRepr" ng-options="r for r in representations" id="repr" required></select>
-    <input type="submit" value="Create Question">
-  </form>
-  <p>Preview: Enter {{ createName }}.</p>
+          <form ng-submit="submit()" name="createQuestionForm">
+            <div class="form-group">
+              <label for="title">Category</label>
+              <input ng-model="createTitle" type="text" id="title" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="name">Metric</label>
+              <input ng-model="createName" type="text" id="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="freq">Frequency</label>
+              <select ng-model="createFreq" ng-options="f for f in frequencies" id="freq" class="form-control" required></select>
+            </div>
+            <div class="form-group">
+              <label for="repr">Visual Type</label>
+              <select ng-model="createRepr" ng-options="r for r in representations" id="repr" class="form-control" required></select>
+            </div>
+            <input type="submit" class='btn btn-primary' value="Create Question">
+          </form>
+          <h4> Preview </h4>
+          <p>{{ createName }}.</p>
       </div>
     </div>
 
 <div ng-repeat="question in questions">
-  <p>{{question.title}}</p>
-  <p>{{question.name}}</p>
-  <p>{{question.freq}}</p>
-  <p>{{question.repr}}</p>
+  <div style="border: 1px solid #eee; padding: 10px; margin: 10px 0px;">
+    <div style="inline-block">
+      <h5 style="display:inline">Category: </h5>
+      <p style="display:inline">{{question.title}}</p>
+    </div>
+    <div style="inline-block">
+      <h5 style="display:inline">Metric: </h5>
+      <p style="display: inline;">{{question.name}}</p>
+    </div>
+    <div style="inline-block">
+      <h5 style="display:inline">Frequency:</h5>
+      <p style="display: inline;">{{question.freq}}</p>
+    </div>
+    <div style="inline-block">
+      <h5 style="display:inline">Visual Type:</h5>
+      <p style="display: inline;">{{question.repr}}</p>
+    </div>
+  </div>
 </div>
 
 </div>

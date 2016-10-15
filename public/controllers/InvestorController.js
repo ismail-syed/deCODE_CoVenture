@@ -47,7 +47,14 @@ app.controller("InvestorController", ['$scope', '$location', 'GoalService', func
           $scope.questions.push({"title": question.variableLabel, "name": question.variableAction, "freq": question.occurrence, "repr": "GRAPH"});
         }
         console.log($scope.questions);
+
+        GoalService.getCompanyGoals(company._id).then(function(data) {
+          $scope.companies = data;
+        }).catch(function() {
+          $scope.error = 'Unable to get the companies';
+        });
     };
+
 
     console.log("InvestorController");
 

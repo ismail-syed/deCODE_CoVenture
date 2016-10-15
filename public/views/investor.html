@@ -67,8 +67,9 @@
                     <li>
                         <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
                     </li> -->
+				<li style="color:#fff; padding: 10px;"> Portfolio Companies: </li>
 				<li ng-repeat=" x in companies" ng-class="getClass($index)">
-					<a ng-click="selectCompany(x, $index)"><i class="fa fa-fw fa-bar-chart-o"></i> {{x.name}}</a>
+					<a ng-click="selectCompany(x, $index)"><i class="fa fa-fw fa fa-users"></i> {{x.name}}</a>
 				</li>
 			</ul>
 		</div>
