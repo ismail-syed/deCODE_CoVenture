@@ -1,5 +1,5 @@
 var app = angular.module('CoVentureApp');
-var baseURL = 'http://159.203.43.162:3000/api/'
+var baseURL = 'http://159.203.43.162:80/api/'
 app.service('CompanyService', function($http) {
     this.getCompanies = function() {
         return $http.get(baseURL + 'companies').then(function(res) {

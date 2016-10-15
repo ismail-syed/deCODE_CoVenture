@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.static(path.join(__dirname, '../public')));
 
-var port = process.env.PORT || 3000;        // set our port
+var port = process.env.PORT || 80;        // set our port
 
 // more routes for our API will happen here
 
