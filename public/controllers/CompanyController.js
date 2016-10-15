@@ -1,6 +1,6 @@
 var app = angular.module('CoVentureApp');
 
-app.controller("CompanyController", ['$scope', '$location', 'CompanyService', 'CurrentCompanyService', function($scope, $location, CompanyService, CurrentCompanyService) {
+app.controller("CompanyController", ['$scope', '$location', 'CompanyService', 'CurrentCompanyService', 'GoalService', function($scope, $location, CompanyService, CurrentCompanyService, GoalService) {
 
   var templates = {
     questions: '/views/companyQuestions.html',
@@ -25,7 +25,8 @@ app.controller("CompanyController", ['$scope', '$location', 'CompanyService', 'C
       case 'questions':
           $scope.template = templates.questions;
           console.log(CurrentCompanyService.getCurrentCompany());
-          $scope.company = CurrentCompanyService.getCurrentCompany().name;
+          $scope.company = CurrentCompanyService.getCurrentCompany();
+          $scope.questions = $scope.company.goalReferences;
           break;
       default:
 
@@ -44,4 +45,8 @@ app.controller("CompanyController", ['$scope', '$location', 'CompanyService', 'C
       $location.path('/company');
     };
 
+    $scope.submit = function() {
+      console.log("test");
+      //GoalService.updateGoal(question._id, $scope.val);
+    };
 }]);
