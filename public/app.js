@@ -12,6 +12,4 @@ app.config(function ($routeProvider) {
     controller: 'InvestorController',
     templateUrl: '/views/investor.html'
   });
-
-
 });

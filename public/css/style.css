@@ -8,9 +8,11 @@
 body {
     padding-top: 90px;
 }
-body[ng-controller="LoginController"] {
+/*body[ng-controller="LoginController"] {
+  padding-top: 90px;
   background-image: url(http://www.coventure.vc/images/bgimg-new1.jpg);
-}
+}*/
+
 .panel-login {
 	border-color: #ccc;
 	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
