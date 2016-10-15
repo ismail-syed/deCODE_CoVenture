@@ -1,7 +1,7 @@
 var app = angular.module('CoVentureApp');
 
-app.controller("InvestorController", ['$scope', '$location', 'GoalService', function($scope, $location, GoalService) {
-    var selectedCompany = null;
+app.controller("InvestorController", ['$scope', '$location', 'GoalService', 'CompanyService', function($scope, $location, GoalService, CompanyService) {
+    $scope.selectedCompany = null;
     var selectedIndex = -1;
     $scope.getClass = function(ind) {
       if( ind === selectedIndex ){
@@ -37,17 +37,19 @@ app.controller("InvestorController", ['$scope', '$location', 'GoalService', func
 
     $scope.selectCompany = function(company, ind) {
         selectedIndex = ind;
-        selectedCompany = company;
-        console.log(selectedCompany);
+        $scope.selectedCompany = company;
+        console.log($scope.selectedCompany);
         $scope.questions = [];
-        for(i = 0; i < company.goalReferences.length; i++) {
-          let question = company.goalReferences[i];
-          console.log(question);
-          // TODO allow changes to repr
-          $scope.questions.push({"title": question.variableLabel, "name": question.variableAction, "freq": question.occurrence, "repr": "GRAPH"});
+        if(company.goalReferences){
+          for(i = 0; i < company.goalReferences.length; i++) {
+            let question = company.goalReferences[i];
+            console.log(question);
+            // TODO allow changes to repr
+            $scope.questions.push({"title": question.variableLabel, "name": question.variableAction, "freq": question.occurrence, "repr": "GRAPH"});
+          }
         }
         console.log($scope.questions);
-
+        console.log("company._id ", company._id);
         GoalService.getCompanyGoals(company._id).then(function(data) {
           $scope.companies = data;
         }).catch(function() {
@@ -55,6 +57,9 @@ app.controller("InvestorController", ['$scope', '$location', 'GoalService', func
         });
     };
 
+    $scope.init = function(company){
+      $scope.selectCompany(company, 0);
+    };
 
     console.log("InvestorController");
 
