@@ -1,18 +1,17 @@
 var app = angular.module('CoVentureApp');
 
-app.controller("LoginController", function($scope, $location) {
+app.controller("LoginController", ['$scope', 'CompanyService', function($scope, CompanyService) {
+    var companyService = new CompanyService();
+    companyService.getCompanies().then(function(data) {
+      $scope.companies = data;
+    }).catch(function() {
+      $scope.error = 'Unable to get the companies';
+    });
 
-    console.log("LoginController");
-
-    $scope.companies = [
-      'Amazon',
-      'Klipfolio',
-      'CoVenture',
-      'You.i'
-    ]
-
-    $scope.getCompany = function($scope) {
-      
+    $scope.loginInvestor = function() {
     }
 
-});
+    $scope.loginCompany = function() {
+
+    }
+}]);
